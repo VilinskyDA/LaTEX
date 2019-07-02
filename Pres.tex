@@ -1,0 +1,164 @@
+\documentclass[ignorenonframetext]{beamer}
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+\usetheme{Dresden} % Выбираем основную тему
+\usefonttheme{serif} % Дополнительно подключаем шрифты
+% Авторы
+\author{Вилинский Д.А.}
+% Название презентации
+\title{Создание презентациии в LaTeX}
+% Организации
+\institute{УрФУ}
+% Дата (команда \today выводит текущую дату)
+\date{\today}
+
+\begin{document}
+% Титульная страница
+\frame{\titlepage}
+% Содержание презентации (выводятся только основные разделы)
+\frame{\frametitle{Содержание}\tableofcontents} 
+\chapter{Содержание презентации}
+\section{основное о Beamer}
+\begin{frame}{Beamer}
+\begin{itemize}
+\item Beamer — класс для LATEX’а, специально предназначенный
+для создания слайдов и презентаций
+\item Позволяет контролировать внешний вид, цвета, темы,
+переход между слайдами и т.п.
+\item Добавляет некоторые новые возможности к уже
+привычным командам TEX’а
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Где взять?}
+\begin{itemize}
+\item Скорее всего Beamer уже есть в поставке LATEX’а
+\item Если нет, то можно скачать с
+http://bitbucket.org/rivanvx/beamer/wiki/Home
+\item Там же можно взять крайне полезное руководство
+пользователя Beamer
+\end{itemize}
+\end{frame}
+\section{Начало создания}
+
+\begin{frame}{Начанаем}
+Первый шаг — задать базовую информацию о презентации:
+название, автора, организацию и т.п.\\
+\begin{block}{В преамбуле}
+$\backslash$title[short title]\{long title\}\\
+$\backslash$subtitle[short subtitle]\\\
+$\backslash$author[short name]\{long name\}\\
+$\backslash$date[short date]\{long date\}\\
+$\backslash$institution[short name]\{long name\}\\
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Frame’ы}
+\begin{itemize}
+\item Каждая презентация состоит из кадров (frame’ов)
+\item Каждый frame может произвести один и более слайдов (в
+зависимости от переходов-overlay’ев)
+\end{itemize}
+\\
+\begin{block}{Просто кадр}
+$\backslash$begin{frame}[<alignment>]\\
+$\backslash$frametitle\{Frame Title Goes Here\}\\
+Frame body text and/or LATEX code\\
+$\backslash$end\{frame\}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Титульный Слайд}
+На титульном слайде отображается все то, что было задано в
+преамбуле\\
+
+
+\begin{block}{Титульный Слайд}
+$\backslash$begin\{frame\}\\
+$\backslash$titlepage\\
+$\backslash$end\{frame\}\\
+\end{block}
+\end{frame}
+
+
+\section{Структурирование}
+\begin{frame}
+\frametitle{Структурирование}
+Beamer предоставляет множество способов структурирования
+информации на слайдах. Мы остановимся на
+\begin{itemize}
+\item  Многоколоночной верстке
+\item  Блоках
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Многоколоночная верстка}
+Для набора текста на слайдах в колонки служит окружение
+columns\\
+\begin{block}{пример}
+$\backslash$begin\{columns\}\\
+$\backslash$column\{.3$\backslash$textwidth\}\\
+Левый столбец\\
+$\backslash$column\{.3$\backslash$textwidth\}\\
+Правый столбец\\
+$\backslash$end\{columns\}\\
+
+\begin{columns}
+\column{.3\textwidth}
+Левый столбец
+\column{.3\textwidth}
+Правый столбец
+\end{columns}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Блоки}
+Блоки служат для выделения отдельных фрагментов текста:
+
+\begin{block}{Пример}
+$\backslash$begin\{block\}\{Пример\}\\
+Немного рекурсии\\
+$\backslash$end\{block\}\\
+\end{block}
+\end{frame}
+
+\chapter{Оформление}
+\section{Оформление и цветовые темыы}
+
+\begin{frame}
+\frametitle{Темы}
+\begin{itemize}
+\item Темы могут полностью поменять внешний вид
+презентации.
+\item Тема презентации может быть выбрана посредством
+$\backslash$usetheme\{ThemeName\}
+\end{itemize}
+
+\begin{block}{Доступные темы}
+Antibes Bergen Berkeley Berlin Boadilla Copenhagen Darmstadt
+Dresden Frankfurt Goettingen Hannover Ilmenau Juanlespins
+Madrid Malmoe Marburg Montpellier Paloalto Pittsburgh
+Rochester Singapore ...
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Цветовые Темы}
+\begin{itemize}
+\item  Темы могут полностью поменять внешний вид
+презентации.
+\item   Тема презентации может быть выбрана посредством
+$\backslash$usetheme\{ThemeName\}
+
+\end{itemize}
+
+\begin{block}{Доступные цветовые темы}
+albatross crane beetle dove fly seagull wolverine beaver
+\end{block}
+\end{frame}
+
+\end{document}
